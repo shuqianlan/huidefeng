@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/bottom_nav_home"
+        android:contentDescription="@string/bottom_nav_home"
+        android:title="@string/bottom_nav_home" />
+    <item
+        android:id="@+id/money"
+        android:icon="@drawable/bottom_nav_money"
+        android:contentDescription="@string/bottom_nav_money"
+        android:title="@string/bottom_nav_money" />
+    <item
+        android:id="@+id/market"
+        android:icon="@drawable/bottom_nav_market"
+        android:contentDescription="@string/bottom_nav_market"
+        android:title="@string/bottom_nav_market" />
+    <item
+        android:id="@+id/user"
+        android:icon="@drawable/bottom_nav_user"
+        android:contentDescription="@string/bottom_nav_user"
+        android:title="@string/bottom_nav_user" />
+</menu>
