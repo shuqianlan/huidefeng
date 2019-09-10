@@ -12,22 +12,11 @@ import android.view.ViewGroup
 
 import com.xihu.huidefeng.R
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
+	override fun layoutId(): Int = R.layout.fragment_home
+	
+	override fun initView() {
+	
 	}
-
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-	                          savedInstanceState: Bundle?): View? {
-		return inflater.inflate(R.layout.fragment_home, container, false)
-	}
-
-	companion object {
-
-		fun newInstance(): HomeFragment {
-			return HomeFragment()
-		}
-	}
-
 }

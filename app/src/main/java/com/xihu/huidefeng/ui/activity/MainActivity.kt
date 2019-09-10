@@ -13,20 +13,25 @@ import com.xihu.huidefeng.R
 import com.xihu.huidefeng.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
 	private var currentNavController: LiveData<NavController>? = null
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		setContentView(R.layout.activity_main)
-
-		bottom_nav.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
-
+		
 		if (savedInstanceState == null) {
 			setupBottomNavigationBar()
 		}
 	}
-
+	
+	override fun layoutId(): Int = R.layout.activity_main
+	
+	override fun initView() {
+		bottom_nav.labelVisibilityMode = LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+	}
+	
+	override fun initData() {}
+	
 	private fun setupBottomNavigationBar() {
 		val navGraphIds = listOf(
 				R.navigation.bottom_nav_home,

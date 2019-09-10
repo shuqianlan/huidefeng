@@ -10,6 +10,119 @@
         android:id="@+id/navigation_user"
         android:name="com.xihu.huidefeng.ui.fragments.UserFragment"
         android:label="@string/bottom_nav_user"
-        tools:layout="@layout/fragment_user"
+        tools:layout="@layout/fragment_user">
+
+        <action
+            android:id="@+id/action_user_fragment_to_charge_fragment"
+            app:destination="@+id/charge_fragment"
+            />
+
+        <action
+            android:id="@+id/action_user_fragment_to_balance_fragment"
+            app:destination="@+id/balance_fragment"
+            />
+
+        <action
+            android:id="@+id/action_user_fragment_to_score_fragment"
+            app:destination="@+id/score_fragment" />
+
+        <action
+            android:id="@+id/action_user_fragment_to_withdraw_fragment"
+            app:destination="@+id/withdraw_fragment" />
+
+        <action
+            android:id="@+id/action_user_fragment_to_atlas_fragment"
+            app:destination="@+id/atlas_fragment" />
+
+        <action
+            android:id="@+id/action_user_fragment_to_notice_fragment"
+            app:destination="@+id/notice_fragment" />
+
+        <action
+            android:id="@+id/action_user_fragment_to_security_fragment"
+            app:destination="@+id/security_fragment" />
+
+        <action
+            android:id="@+id/action_user_fragment_to_info_fragment"
+            app:destination="@+id/info_fragment" />
+
+        <action
+            android:id="@+id/action_user_fragment_to_download_fragment"
+            app:destination="@+id/download_fragment" />
+
+        <action
+            android:id="@+id/action_user_fragment_to_logout_fragment"
+            app:destination="@+id/logout_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/charge_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_recharge"
+        tools:layout="@layout/fragment_recharge"
+        />
+
+    <fragment
+        android:id="@+id/balance_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_balance"
+        tools:layout="@layout/fragment_recharge"
+        />
+
+    <fragment
+        android:id="@+id/score_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_score"
+        tools:layout="@layout/fragment_recharge"
+        />
+
+    <fragment
+        android:id="@+id/withdraw_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_withdraw"
+        tools:layout="@layout/fragment_recharge"
+        />
+
+    <fragment
+        android:id="@+id/atlas_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_atlas"
+        tools:layout="@layout/fragment_recharge"
+        />
+
+    <fragment
+        android:id="@+id/notice_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_notice"
+        tools:layout="@layout/fragment_recharge"
+        />
+
+    <fragment
+        android:id="@+id/security_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_security"
+        tools:layout="@layout/fragment_recharge"
+        />
+
+    <fragment
+        android:id="@+id/info_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_info"
+        tools:layout="@layout/fragment_recharge"
+        />
+
+    <fragment
+        android:id="@+id/download_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_download"
+        tools:layout="@layout/fragment_recharge"
+        />
+
+    <fragment
+        android:id="@+id/logout_fragment"
+        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
+        android:label="@string/user_logout"
+        tools:layout="@layout/fragment_recharge"
         />
 </navigation>

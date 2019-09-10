@@ -30,6 +30,10 @@ class KotlinDataAdapter<T,R:ViewDataBinding> private constructor(): RecyclerView
     override fun onBindViewHolder(holder: DataHolder, position: Int) {
         addBindView?.invoke(holder, datas!!.get(position)) ?: holder.binder.setVariable(1, datas!!.get(position))
         holder.itemView.setOnClickListener {
+            println("ahahhahahahah:")
+            if (itemClick != null) {
+                println("enheng???:${datas!!.get(position)}")
+            }
             itemClick?.invoke(holder.itemView, datas!!.get(position))
         }
     }
