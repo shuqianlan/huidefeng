@@ -77,7 +77,7 @@ class UserFragment : BaseFragment() {
 		}.build()
 	}
 	
-	inner class ItemBean(val title:String, val icon:Int=R.drawable.bottom_nav_user, val viewType:Int=1, val category:Int=0) {
+	inner class ItemBean(val title:String, val icon:Int=R.drawable.user, val viewType:Int=1, val category:Int=0) {
 		val drawable:BitmapDrawable
 		
 		init {
