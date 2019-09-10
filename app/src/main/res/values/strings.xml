@@ -15,6 +15,17 @@
     <string name="bottom_nav_market">推广</string>
     <string name="bottom_nav_user">会员中心</string>
 
+    <string name="user_recharge">充值</string>
+    <string name="user_balance">余额明细</string>
+    <string name="user_score">积分明细</string>
+    <string name="user_withdraw">提现</string>
+    <string name="user_atlas">会员图谱</string>
+    <string name="user_notice">会员公告</string>
+    <string name="user_security">安全设置</string>
+    <string name="user_info">账户信息</string>
+    <string name="user_download">APP下载</string>
+    <string name="user_logout">退出账号</string>
+    <string name="user_placeholder">-</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

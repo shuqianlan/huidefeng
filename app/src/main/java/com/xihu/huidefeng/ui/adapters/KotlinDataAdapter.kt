@@ -12,28 +12,30 @@ import androidx.recyclerview.widget.RecyclerView
 *
 * */
 class KotlinDataAdapter<T,R:ViewDataBinding> private constructor(): RecyclerView.Adapter<DataHolder>() {
-    private var layoutId:Int?=null
+    private var layoutId:((Int)->Int)?=null
     private var datas:List<T>?=null
     private var addBindView: ((DataHolder, T) -> Unit)?=null
     private var itemClick: ((View, T) -> Unit)?=null
-    private var isSupportRefreshStatus = false
+    private var itemViewType: ((T) -> Int)?=null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataHolder {
-        val binder = DataBindingUtil.inflate<R>(LayoutInflater.from(parent.context), layoutId!!, parent, false)
+        val binder = DataBindingUtil.inflate<R>(LayoutInflater.from(parent.context), layoutId!!(viewType), parent, false)
         return DataHolder(binder!!)
     }
 
     override fun getItemCount(): Int {
-        return datas?.size?:0 + 1
+        return datas?.size?:0
     }
 
     override fun onBindViewHolder(holder: DataHolder, position: Int) {
-        if (position != datas!!.size-1) {
-            addBindView?.invoke(holder, datas!!.get(position)) ?: holder.binder.setVariable(1, datas!!.get(position))
-            holder.itemView.setOnClickListener {
-                itemClick?.invoke(holder.itemView, datas!!.get(position))
-            }
+        addBindView?.invoke(holder, datas!!.get(position)) ?: holder.binder.setVariable(1, datas!!.get(position))
+        holder.itemView.setOnClickListener {
+            itemClick?.invoke(holder.itemView, datas!!.get(position))
         }
+    }
+    
+    override fun getItemViewType(position: Int): Int {
+        return itemViewType!!(datas!!.get(position))
     }
 
     class Builder<B,S:ViewDataBinding> {
@@ -44,8 +46,13 @@ class KotlinDataAdapter<T,R:ViewDataBinding> private constructor(): RecyclerView
             return this
         }
 
-        fun setLayoutId(layoutId:Int):Builder<B,S> {
-            adapter.layoutId = layoutId
+        fun setLayoutId(func:((viewType:Int)-> Int)):Builder<B,S> {
+            adapter.layoutId = func
+            return this
+        }
+    
+        fun itemViewType(func:((b:B) -> Int)):Builder<B,S> {
+            adapter.itemViewType = func
             return this
         }
 
@@ -56,11 +63,6 @@ class KotlinDataAdapter<T,R:ViewDataBinding> private constructor(): RecyclerView
 
         fun onItemClick(itemClick:((itemView:View, itemData:B) -> Unit)): Builder<B,S> {
             adapter.itemClick = itemClick
-            return this
-        }
-
-        fun isSupportRefreshStatus(bool:Boolean=false) : Builder<B,S> {
-            adapter.isSupportRefreshStatus = bool
             return this
         }
 
