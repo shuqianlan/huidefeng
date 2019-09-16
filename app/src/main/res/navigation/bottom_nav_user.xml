@@ -60,8 +60,7 @@
         android:id="@+id/charge_fragment"
         android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
         android:label="@string/user_recharge"
-        tools:layout="@layout/fragment_recharge"
-        />
+        tools:layout="@layout/fragment_recharge" />
 
     <fragment
         android:id="@+id/balance_fragment"

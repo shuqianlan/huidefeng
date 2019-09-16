@@ -7,10 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
-/*
-* 若itemHolder的xml中，只有一个variable，则无需调用bindWithData
-*
-* */
+/**若itemHolder的xml中，只有一个variable，则无需调用bindWithData **/
 class KotlinDataAdapter<T,R:ViewDataBinding> private constructor(): RecyclerView.Adapter<DataHolder>() {
     private var layoutId:((Int)->Int)?=null
     private var datas:List<T>?=null
@@ -26,14 +23,10 @@ class KotlinDataAdapter<T,R:ViewDataBinding> private constructor(): RecyclerView
     override fun getItemCount(): Int {
         return datas?.size?:0
     }
-
+    
     override fun onBindViewHolder(holder: DataHolder, position: Int) {
         addBindView?.invoke(holder, datas!!.get(position)) ?: holder.binder.setVariable(1, datas!!.get(position))
         holder.itemView.setOnClickListener {
-            println("ahahhahahahah:")
-            if (itemClick != null) {
-                println("enheng???:${datas!!.get(position)}")
-            }
             itemClick?.invoke(holder.itemView, datas!!.get(position))
         }
     }

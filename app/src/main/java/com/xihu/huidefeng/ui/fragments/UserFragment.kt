@@ -80,14 +80,15 @@ class UserFragment : BaseFragment() {
 	inner class ItemBean(val title:String, val icon:Int=R.drawable.user, val viewType:Int=1, val category:Int=0) {
 		val drawable:BitmapDrawable
 		
+		// 因为icon大小并不统一，暂不显示.
 		init {
 			drawable = BitmapDrawable(this@UserFragment.resources, BitmapFactory.decodeResource(this@UserFragment.resources, icon))
 		}
 	}
 	
 	private fun navigateTo(view:View, actionId:Int, descId:Int) {
-		Navigation.findNavController(view).navigate(actionId, Bundle().also {
-			it.putInt(Intent.EXTRA_TEXT, descId)
+		Navigation.findNavController(view).navigate(actionId, Bundle().apply {
+			putInt(Intent.EXTRA_TEXT, descId)
 		})
 	}
 }

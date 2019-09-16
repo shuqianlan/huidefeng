@@ -90,10 +90,12 @@ fun BottomNavigationView.setupWithNavController(
         if (fragmentManager.isStateSaved) {
             false
         } else {
+            
             val newlySelectedItemTag = graphIdToTagMap[item.itemId]
             println("itemId=${item.itemId};newlySelectedItemTag=$newlySelectedItemTag")
             if (selectedItemTag != newlySelectedItemTag) {
                 // Pop everything above the first fragment (the "fixed start destination")
+                println("Stack_CountSize:${fragmentManager.backStackEntryCount}")
                 fragmentManager.popBackStack(firstFragmentTag,
                     FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 val selectedFragment = fragmentManager.findFragmentByTag(newlySelectedItemTag)

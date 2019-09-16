@@ -46,13 +46,15 @@ class MainActivity : BaseActivity() {
 				intent = intent)
 		
 		controller.observe(this, Observer { navController ->
-			setupActionBarWithNavController(navController)
+			println(">>>>>>>>>>>>>> ${navController.graph.id}")
+			setupActionBarWithNavController(navController) // 改变不同的MenuItem则刷新ActionBar的内容和图标.
 		})
 		
 		currentNavController = controller
 	}
 	
 	override fun onSupportNavigateUp(): Boolean {
+		println("lalalallalal")
 		return currentNavController?.value?.navigateUp() ?: false
 	}
 }
