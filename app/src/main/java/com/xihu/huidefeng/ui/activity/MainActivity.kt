@@ -1,7 +1,5 @@
 package com.xihu.huidefeng.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
-
 import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -46,7 +44,6 @@ class MainActivity : BaseActivity() {
 				intent = intent)
 		
 		controller.observe(this, Observer { navController ->
-			println(">>>>>>>>>>>>>> ${navController.graph.id}")
 			setupActionBarWithNavController(navController) // 改变不同的MenuItem则刷新ActionBar的内容和图标.
 		})
 		
@@ -54,7 +51,6 @@ class MainActivity : BaseActivity() {
 	}
 	
 	override fun onSupportNavigateUp(): Boolean {
-		println("lalalallalal")
 		return currentNavController?.value?.navigateUp() ?: false
 	}
 }
