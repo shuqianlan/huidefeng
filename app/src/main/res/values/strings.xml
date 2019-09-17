@@ -16,10 +16,10 @@
     <string name="bottom_nav_user">会员中心</string>
 
     <string name="user_recharge">充值</string>
-    <string name="user_balance">余额明细</string>
+    <string name="user_balance">实时业绩</string>
     <string name="user_score">积分明细</string>
     <string name="user_withdraw">提现</string>
-    <string name="user_atlas">会员图谱</string>
+    <string name="user_atlas">团队人数</string>
     <string name="user_notice">会员公告</string>
     <string name="user_security">安全设置</string>
     <string name="user_info">账户信息</string>
