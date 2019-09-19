@@ -50,10 +50,6 @@
             android:id="@+id/action_user_fragment_to_download_fragment"
             app:destination="@+id/download_fragment" />
 
-        <action
-            android:id="@+id/action_user_fragment_to_logout_fragment"
-            app:destination="@+id/logout_fragment" />
-
     </fragment>
 
     <fragment
@@ -118,10 +114,4 @@
         tools:layout="@layout/fragment_recharge"
         />
 
-    <fragment
-        android:id="@+id/logout_fragment"
-        android:name="com.xihu.huidefeng.ui.fragments.TextFragment"
-        android:label="@string/user_logout"
-        tools:layout="@layout/fragment_recharge"
-        />
 </navigation>

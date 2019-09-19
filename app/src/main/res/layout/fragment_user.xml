@@ -6,121 +6,128 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.UserFragment">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_area"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:background="@android:color/white"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/content_area"
-            android:background="@android:color/white"
-            >
+            android:layout_height="0dp"
+            android:id="@+id/user_area"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,8:5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
             <ImageView
+                android:id="@+id/user_portrait"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/avatar"
-                android:id="@+id/avatar"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.11"
 
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintVertical_bias="0.35" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/nick"
+                android:id="@+id/user_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintBottom_toTopOf="@id/info_area"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/avatar"
-                app:layout_constraintVertical_bias="0.2"
-                tools:text="Hello" />
+                android:layout_marginTop="4dp"
+                android:text="点击查看或编辑个人信息"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/user_nick"
+                app:layout_constraintTop_toBottomOf="@id/user_nick" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/user_nick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="肖玉昂"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/user_portrait"
+                app:layout_constraintStart_toEndOf="@+id/user_portrait"
+                app:layout_constraintTop_toTopOf="@+id/user_portrait"
+                app:layout_constraintVertical_bias="0.26" />
+
+            <View
+                android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="H,9:1"
+                android:background="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:id="@+id/info_area"
-                android:background="#ddd"
-                >
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center"
-                    android:id="@+id/balance"
-                    android:text="0.0\n余额"
-                    />
+                app:layout_constraintDimensionRatio="H,8:1" />
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="4dp"
-                    android:background="@android:color/white"
-                    android:layout_gravity="center_vertical"
-                    />
+            <LinearLayout
+                android:id="@+id/show_area"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="20dp"
+                android:elevation="2dp"
+                android:background="@drawable/user_show_area_corner_background"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintDimensionRatio="H,8:1.4"
+                app:layout_constraintTop_toTopOf="@+id/view" >
+
                 <TextView
+                    android:id="@+id/balance"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0.0\n余额"
+                    android:textColor="@color/text_color_disp" />
+
+                <TextView
                     android:id="@+id/score"
-                    android:gravity="center"
-                    android:text="12\n积分"
-                    />
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="4dp"
-                    android:background="@android:color/white"
-                    android:layout_gravity="center_vertical"
-                    />
-                <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0\n积分"
+                    android:textColor="@color/text_color_disp" />
+
+                <TextView
                     android:id="@+id/performance"
-                    android:gravity="center"
-                    android:text="0.0\n团队业绩"
-                    />
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="4dp"
-                    android:background="@android:color/white"
-                    android:layout_gravity="center_vertical"
-                    />
-                <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:id="@+id/salary"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0.0\n业绩"
+                    android:textColor="@color/text_color_disp" />
+
+                <TextView
+                    android:id="@+id/commission"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="0.0\n佣金"
-                    />
+                    android:textColor="@color/text_color_disp" />
             </LinearLayout>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/user_items"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:id="@+id/user_items"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintVertical_weight="1"
             android:orientation="vertical"
-            />
-    </LinearLayout>
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/user_area"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" >
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

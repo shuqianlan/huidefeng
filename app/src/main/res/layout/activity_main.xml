@@ -22,4 +22,5 @@
         app:itemTextColor="@color/bottom_nav_textcolor_selector"
         app:itemIconTint="@color/bottom_nav_textcolor_selector"
         />
+
 </LinearLayout>

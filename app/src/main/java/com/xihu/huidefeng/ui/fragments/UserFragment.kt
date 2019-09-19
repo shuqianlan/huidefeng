@@ -18,6 +18,9 @@ import com.ilifesmart.weatherdemoapi.adapters.KotlinDataAdapter
 
 import com.xihu.huidefeng.R
 import com.xihu.huidefeng.databinding.LayoutUserItemHolderBinding
+import com.xihu.huidefeng.ui.activity.MainActivity
+import com.xihu.huidefeng.ui.activity.SplashActivity
+import com.xihu.huidefeng.ui.utils.Utils
 import kotlinx.android.synthetic.main.fragment_user.*
 
 class UserFragment : BaseFragment() {
@@ -26,25 +29,30 @@ class UserFragment : BaseFragment() {
 	private val datas = mutableListOf<ItemBean>()
 	
 	private val CATEGORY_DEFAULT = 0
-
+	
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		setHasOptionsMenu(false)
+	}
+	
 	override fun initView() {
 		datas.clear()
 		datas.apply {
-			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
+//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
 			add(ItemBean(getString(R.string.user_recharge), R.drawable.recharge, category = 2))
 			add(ItemBean(getString(R.string.user_balance), R.drawable.balance, category = 3))
 			add(ItemBean(getString(R.string.user_score), R.drawable.score, category = 4))
 			add(ItemBean(getString(R.string.user_withdraw), R.drawable.withdraw, category = 5))
-			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
+//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
 			add(ItemBean(getString(R.string.user_atlas), R.drawable.vip_atlas, category = 6))
 			add(ItemBean(getString(R.string.user_notice), R.drawable.vip_notice, category = 7))
 			add(ItemBean(getString(R.string.user_security), R.drawable.security, category = 8))
-			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
+//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
 			add(ItemBean(getString(R.string.user_info), R.drawable.user_info, category = 9))
 			add(ItemBean(getString(R.string.user_download), R.drawable.download, category = 10))
-			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
+//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
 			add(ItemBean(getString(R.string.user_logout), R.drawable.logout, category = 11))
-			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
+//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
 		}
 
 		user_items.adapter = KotlinDataAdapter.Builder<ItemBean, LayoutUserItemHolderBinding>().apply {
@@ -59,6 +67,7 @@ class UserFragment : BaseFragment() {
 			setData(datas)
 			onItemClick() {
 				view, bean ->
+				println("ahahahah")
 				when(bean.category) {
 					2 -> navigateTo(view, R.id.action_user_fragment_to_charge_fragment, R.string.user_recharge)
 					3 -> navigateTo(view, R.id.action_user_fragment_to_balance_fragment, R.string.user_balance)
@@ -69,12 +78,22 @@ class UserFragment : BaseFragment() {
 					8 -> navigateTo(view, R.id.action_user_fragment_to_security_fragment, R.string.user_security)
 					9 -> navigateTo(view, R.id.action_user_fragment_to_info_fragment, R.string.user_info)
 					10 -> navigateTo(view, R.id.action_user_fragment_to_download_fragment, R.string.user_download)
-					11 -> navigateTo(view, R.id.action_user_fragment_to_logout_fragment, R.string.user_logout)
+					11 -> onAlertExitApp(view)
 				}
 			}
 			itemViewType { b -> b.viewType }
 			
 		}.build()
+	}
+	
+	private fun onAlertExitApp(v:View) {
+		alterDialog(R.string.ok, R.string.cancel) {
+			Utils.isLogin = false
+			Intent(activity, SplashActivity::class.java).also {
+				startActivity(it)
+			}
+			activity?.finish()
+		}
 	}
 	
 	inner class ItemBean(val title:String, val icon:Int=R.drawable.user, val viewType:Int=1, val category:Int=0) {

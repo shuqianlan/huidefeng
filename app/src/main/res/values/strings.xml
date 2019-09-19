@@ -28,4 +28,10 @@
     <string name="user_placeholder">-</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="user_to_exit">是否退出App?</string>
+    <string name="user_to_exit_disp">退出将不会收到实时消息提示!</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="login">登录</string>
 </resources>

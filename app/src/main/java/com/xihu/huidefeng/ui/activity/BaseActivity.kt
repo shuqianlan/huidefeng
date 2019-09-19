@@ -22,9 +22,9 @@ abstract class BaseActivity: AppCompatActivity(), CoroutineScope by MainScope() 
 		cancel()
 	}
 	
+	abstract fun layoutId():Int
 	abstract fun initView()
 	abstract fun initData()
-	abstract fun layoutId():Int
 
 	inline fun <reified T:AppCompatActivity> Activity.startActivity() {
 		startActivity(Intent(this, T::class.java))
