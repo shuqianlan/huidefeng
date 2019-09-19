@@ -3,6 +3,7 @@ package com.xihu.huidefeng.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import com.xihu.huidefeng.R
 
@@ -29,7 +30,13 @@ class LoginActivity : BaseActivity() {
 //		println("onbackPressed ... ${onSupportNavigateUp()}")
 		
 		val fragment = supportFragmentManager.findFragmentById(R.id.fragment)
-		NavHostFragment.findNavController(fragment!!)
+		val destination = NavHostFragment.findNavController(fragment!!).currentDestination?.navigatorName
+		println("destination: $destination")
+		if (destination == null) {
+			return
+		}
+		
+		
 		super.onBackPressed()
 	}
 	
