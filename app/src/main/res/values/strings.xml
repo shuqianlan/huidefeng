@@ -35,6 +35,12 @@
     <string name="ok">确定</string>
     <string name="login">登录</string>
     <string name="register">注册</string>
-    <string name="user_name">用户名</string>
+    <string name="user_name">用户名(手机号)</string>
     <string name="user_password">密码</string>
+    <string name="user_invitation_code">邀请码</string>
+    <string name="user_auth_code">验证码</string>
+
+    <string name="warning_tips1">账号或密码不可为空！请检查后重新输入</string>
+    <string name="warning_tips2">手机号输入不正确！请检查后重新输入</string>
+    <string name="warning_tips3">密码太短！请重新输入</string>
 </resources>

@@ -50,15 +50,17 @@
                 <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:hasClearButton="true"
+                    app:hasClearButton="false"
+                    app:endIcon="@drawable/cancel"
                     app:labelText="@string/user_name"
+                    android:id="@+id/login_userid_cont"
                     app:panelBackgroundColor="@color/white"
                     app:primaryColor="@color/text_color_title"
                     app:secondaryColor="@color/colorPrimary"
                     app:useDenseSpacing="true">
 
                     <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                        android:id="@+id/login_username_input"
+                        android:id="@+id/login_userid"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="18158531684" />
@@ -75,15 +77,17 @@
                 <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:hasClearButton="true"
+                    app:hasClearButton="false"
+                    app:endIcon="@drawable/eye_off"
                     app:labelText="@string/user_password"
+                    android:id="@+id/login_password_cont"
                     app:panelBackgroundColor="@color/white"
                     app:primaryColor="@color/text_color_title"
                     app:secondaryColor="@color/colorPrimary"
                     app:useDenseSpacing="true">
 
                     <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                        android:id="@+id/login_password_input"
+                        android:id="@+id/login_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
@@ -120,7 +124,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/register"
-                    android:visibility="gone"
                     android:id="@+id/goto_register"
                     android:elevation="2dp"
                     android:textColor="@color/text_color_title"

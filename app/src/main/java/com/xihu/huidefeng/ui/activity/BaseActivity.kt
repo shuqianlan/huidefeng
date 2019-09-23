@@ -30,7 +30,7 @@ abstract class BaseActivity: AppCompatActivity(), CoroutineScope by MainScope() 
 		startActivity(Intent(this, T::class.java))
 	}
 	
-	inline fun Activity.toast(msg:String, duration:Int=Toast.LENGTH_SHORT) {
+	fun Activity.toast(msg:String, duration:Int=Toast.LENGTH_SHORT) {
 		if (msg.isNotEmpty()) {
 			Toast.makeText(this, msg, duration).show()
 		}
