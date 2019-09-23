@@ -26,6 +26,12 @@
     <string name="user_download">APP下载</string>
     <string name="user_logout">退出账号</string>
     <string name="user_placeholder">-</string>
+
+    <string name="user_show_balance">余额</string>
+    <string name="user_show_score">积分</string>
+    <string name="user_show_performance">业绩</string>
+    <string name="user_show_commission">佣金</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -43,4 +49,7 @@
     <string name="warning_tips1">账号或密码不可为空！请检查后重新输入</string>
     <string name="warning_tips2">手机号输入不正确！请检查后重新输入</string>
     <string name="warning_tips3">密码太短！请重新输入</string>
+
+    <string name="sum_score">可投入积分</string>
+    <string name="consume_score">投入积分</string>
 </resources>
