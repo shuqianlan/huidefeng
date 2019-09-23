@@ -16,7 +16,7 @@ class HomeFragment : BaseFragment() {
 
 	override fun layoutId(): Int = R.layout.fragment_home
 	
-	override fun initView() {
+	override fun initView(v:View) {
 	
 	}
 }

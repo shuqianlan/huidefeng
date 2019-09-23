@@ -28,31 +28,24 @@ class UserFragment : BaseFragment() {
 	override fun layoutId()=R.layout.fragment_user
 	private val datas = mutableListOf<ItemBean>()
 	
-	private val CATEGORY_DEFAULT = 0
-	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setHasOptionsMenu(false)
 	}
 	
-	override fun initView() {
+	override fun initView(v:View) {
 		datas.clear()
 		datas.apply {
-//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
 			add(ItemBean(getString(R.string.user_recharge), R.drawable.recharge, category = 2))
+			add(ItemBean(getString(R.string.user_withdraw), R.drawable.withdraw, category = 5))
 			add(ItemBean(getString(R.string.user_balance), R.drawable.balance, category = 3))
 			add(ItemBean(getString(R.string.user_score), R.drawable.score, category = 4))
-			add(ItemBean(getString(R.string.user_withdraw), R.drawable.withdraw, category = 5))
-//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
-			add(ItemBean(getString(R.string.user_atlas), R.drawable.vip_atlas, category = 6))
+//			add(ItemBean(getString(R.string.user_atlas), R.drawable.vip_atlas, category = 6))
 			add(ItemBean(getString(R.string.user_notice), R.drawable.vip_notice, category = 7))
 			add(ItemBean(getString(R.string.user_security), R.drawable.security, category = 8))
-//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
 			add(ItemBean(getString(R.string.user_info), R.drawable.user_info, category = 9))
 			add(ItemBean(getString(R.string.user_download), R.drawable.download, category = 10))
-//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
 			add(ItemBean(getString(R.string.user_logout), R.drawable.logout, category = 11))
-//			add(ItemBean(getString(R.string.user_placeholder), viewType = 0))
 		}
 
 		user_items.adapter = KotlinDataAdapter.Builder<ItemBean, LayoutUserItemHolderBinding>().apply {
@@ -66,9 +59,7 @@ class UserFragment : BaseFragment() {
 			}
 			setData(datas)
 			onItemClick() {
-				view, bean ->
-				println("ahahahah")
-				when(bean.category) {
+				view, bean -> when(bean.category) {
 					2 -> navigateTo(view, R.id.action_user_fragment_to_charge_fragment, R.string.user_recharge)
 					3 -> navigateTo(view, R.id.action_user_fragment_to_balance_fragment, R.string.user_balance)
 					4 -> navigateTo(view, R.id.action_user_fragment_to_score_fragment, R.string.user_score)
@@ -90,6 +81,8 @@ class UserFragment : BaseFragment() {
 		alterDialog(R.string.ok, R.string.cancel) {
 			Utils.isLogin = false
 			Intent(activity, SplashActivity::class.java).also {
+				it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+				it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
 				startActivity(it)
 			}
 			activity?.finish()
