@@ -10,7 +10,7 @@ open class BaseRepository {
         return withContext(Dispatchers.Default) {
             call.invoke()
         }.apply {
-            when (errorCode) {
+            when (code) {
                 100 -> throw TokenInvalidException()
             }
         }

@@ -41,5 +41,7 @@ class RemoteRepository private constructor(): BaseRepository() {
         }
     }
 
-
+    suspend fun login() = request {
+        service.login("15857184055", "dhafgaitryui6731da")
+    }
 }
