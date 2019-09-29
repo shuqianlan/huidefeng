@@ -1,4 +1,4 @@
-package com.xihu.huidefeng.net.jetpack
+package com.xihu.huidefeng.net.base
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.CoroutineScope

@@ -12,7 +12,6 @@ import com.xihu.huidefeng.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
-
 	private var currentNavController: LiveData<NavController>? = null
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)

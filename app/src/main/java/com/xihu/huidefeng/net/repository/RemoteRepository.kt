@@ -1,6 +1,7 @@
 package com.xihu.huidefeng.net.repository
 
 import com.xihu.huidefeng.net.api.ApiService
+import com.xihu.huidefeng.net.base.BaseRepository
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

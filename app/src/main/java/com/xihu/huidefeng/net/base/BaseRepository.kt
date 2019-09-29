@@ -1,4 +1,4 @@
-package com.xihu.huidefeng.net.repository
+package com.xihu.huidefeng.net.base
 
 import com.xihu.huidefeng.net.beans.ResponseData
 import kotlinx.coroutines.Dispatchers
