@@ -34,7 +34,7 @@ class MainActivity : BaseActivity() {
 		val navGraphIds = listOf(
 				R.navigation.bottom_nav_home,
 				R.navigation.bottom_nav_money,
-				R.navigation.bottom_nav_market,
+				R.navigation.bottom_nav_group,
 				R.navigation.bottom_nav_user)
 		
 		val controller = bottom_nav.setupWithNavController(

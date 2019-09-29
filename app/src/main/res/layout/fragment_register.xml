@@ -50,15 +50,19 @@
                 <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:hasClearButton="true"
+                    app:hasClearButton="false"
+                    app:endIcon="@drawable/cancel"
                     app:labelText="@string/user_name"
+                    app:minCharacters="11"
+                    app:maxCharacters="11"
+                    android:id="@+id/register_user_cont"
                     app:panelBackgroundColor="@color/white"
                     app:primaryColor="@color/text_color_title"
                     app:secondaryColor="@color/colorPrimary"
                     app:useDenseSpacing="true">
 
                     <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                        android:id="@+id/login_username_input"
+                        android:id="@+id/register_userid"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="" />
@@ -75,19 +79,48 @@
                 <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:hasClearButton="true"
+                    app:hasClearButton="false"
+                    android:id="@+id/register_password_cont"
                     app:labelText="@string/user_password"
+                    app:panelBackgroundColor="@color/white"
+                    app:primaryColor="@color/text_color_title"
+                    app:secondaryColor="@color/colorPrimary"
+                    app:minCharacters="6"
+                    app:endIcon="@drawable/eye_off"
+                    app:useDenseSpacing="true">
+
+                    <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                        android:id="@+id/register_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:text="" />
+
+                </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:hasClearButton="false"
+                    app:endIcon="@drawable/cancel"
+                    app:labelText="@string/user_invitation_code"
                     app:panelBackgroundColor="@color/white"
                     app:primaryColor="@color/text_color_title"
                     app:secondaryColor="@color/colorPrimary"
                     app:useDenseSpacing="true">
 
                     <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                        android:id="@+id/login_password_input"
+                        android:id="@+id/invitation_code"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword"
-                        android:text="" />
+                        android:inputType="textPassword" />
 
                 </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
             </LinearLayout>

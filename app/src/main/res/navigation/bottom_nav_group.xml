@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/market"
-    app:startDestination="@id/navigation_market"
+    android:id="@+id/group"
+    app:startDestination="@id/navigation_group"
     >
 
     <fragment
-        android:id="@+id/navigation_market"
-        android:name="com.xihu.huidefeng.ui.fragments.MarketFragment"
+        android:id="@+id/navigation_group"
+        android:name="com.xihu.huidefeng.ui.fragments.GroupFragment"
         android:label="@string/bottom_nav_market"
-        tools:layout="@layout/fragment_market"
+        tools:layout="@layout/fragment_group"
         />
 </navigation>
