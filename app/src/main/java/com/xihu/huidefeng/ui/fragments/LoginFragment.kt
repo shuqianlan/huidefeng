@@ -19,35 +19,21 @@ class LoginFragment: BaseFragment() {
 			Utils.isLogin = true
 			navigationPopUpTo(v, null, R.id.action_loginFragment_to_mainActivity, true)
 		}
-	}
-	
-	interface Base {
-		fun print()
-	}
-	
-	class BaseImpl(val x:Int) : Base {
-		override fun print() {
-			println("tt: $x")
-		}
-		
-//		login_password_cont.endIconImageButton.setOnClickListener {
-//			println("isPassword: $isPassword")
-//			login_password.transformationMethod = if (isPassword) {
-//				HideReturnsTransformationMethod.getInstance()
-//			} else {
-//				PasswordTransformationMethod.getInstance()
-//			}
-//
-//			isPassword = !isPassword
-//			login_password_cont.setEndIcon(if (!isPassword) R.drawable.eye_on else R.drawable.eye_off)
-//		}
-//
-//		login_userid_cont.endIconImageButton.setOnClickListener {
-//			login_userid.setText("")
-//		}
 
+		login_password_cont.endIconImageButton.setOnClickListener {
+			println("isPassword: $isPassword")
+			login_password.transformationMethod = if (isPassword) {
+				HideReturnsTransformationMethod.getInstance()
+			} else {
+				PasswordTransformationMethod.getInstance()
+			}
+
+			isPassword = !isPassword
+			login_password_cont.setEndIcon(if (!isPassword) R.drawable.eye_on else R.drawable.eye_off)
+		}
+
+		login_userid_cont.endIconImageButton.setOnClickListener {
+			login_userid.setText("")
+		}
 	}
-	
-	class Derived(b:Base) : Base by b
-	
 }
