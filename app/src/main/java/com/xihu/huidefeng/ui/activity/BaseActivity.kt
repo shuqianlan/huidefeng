@@ -9,6 +9,16 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 
+inline fun <reified T:AppCompatActivity> Activity.startActivity() {
+	startActivity(Intent(this, T::class.java))
+}
+
+fun Activity.toast(msg:String, duration:Int=Toast.LENGTH_SHORT) {
+	if (msg.isNotEmpty()) {
+		Toast.makeText(this, msg, duration).show()
+	}
+}
+
 abstract class BaseActivity: AppCompatActivity(), CoroutineScope by MainScope() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -26,13 +36,4 @@ abstract class BaseActivity: AppCompatActivity(), CoroutineScope by MainScope() 
 	abstract fun initView()
 	abstract fun initData()
 
-	inline fun <reified T:AppCompatActivity> Activity.startActivity() {
-		startActivity(Intent(this, T::class.java))
-	}
-	
-	inline fun Activity.toast(msg:String, duration:Int=Toast.LENGTH_SHORT) {
-		if (msg.isNotEmpty()) {
-			Toast.makeText(this, msg, duration).show()
-		}
-	}
 }
