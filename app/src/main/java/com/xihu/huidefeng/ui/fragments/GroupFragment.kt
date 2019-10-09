@@ -23,7 +23,7 @@ class GroupFragment : BaseFragment() {
 	override fun initView(v: View) {
 //		group_items.adapter = KotlinDataAdapter<>
 		datas.observe(activity!!, Observer {
-			group_items.adapter!!.notifyDataSetChanged()
+//			group_items.adapter?.notifyDataSetChanged()
 		})
 	}
 

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 class RemoteRepository private constructor(): BaseRepository() {
     private val retrofit:Retrofit
-    private val service: ApiService
+    private val apiService: ApiService
 
     init {
         val client = OkHttpClient.Builder()
@@ -29,7 +29,7 @@ class RemoteRepository private constructor(): BaseRepository() {
             .client(client)
             .build()
 
-        service = retrofit.create(ApiService::class.java)
+        apiService = retrofit.create(ApiService::class.java)
     }
 
     companion object {
@@ -43,6 +43,6 @@ class RemoteRepository private constructor(): BaseRepository() {
     }
 
     suspend fun login() = request {
-        service.login("15857184055", "dhafgaitryui6731da")
+        apiService.login("15857184055", "dhafgaitryui6731da")
     }
 }
