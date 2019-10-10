@@ -1,6 +1,7 @@
 package com.xihu.huidefeng.net.base
 
 import androidx.lifecycle.*
+import com.xihu.huidefeng.models.ConfigBean
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeout
@@ -14,7 +15,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     fun launchUI(block: suspend CoroutineScope.()->Unit) = viewModelScope.launch {
         loading.value = true
         try {
-            withTimeout(5000) { // 超时则抛出异常TimeoutCancellationException
+            withTimeout(ConfigBean.instance.requestTimeout) { // 超时则抛出异常TimeoutCancellationException
                 block() // 此处切换到线程池的上下文.
             }
         } catch (e: Exception) {

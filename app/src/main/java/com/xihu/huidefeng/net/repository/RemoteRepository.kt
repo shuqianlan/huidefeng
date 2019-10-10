@@ -2,6 +2,7 @@ package com.xihu.huidefeng.net.repository
 
 import com.xihu.huidefeng.net.api.ApiService
 import com.xihu.huidefeng.net.base.BaseRepository
+import com.xihu.huidefeng.models.ConfigBean
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -14,8 +15,8 @@ class RemoteRepository private constructor(): BaseRepository() {
 
     init {
         val client = OkHttpClient.Builder()
-            .readTimeout(10, TimeUnit.SECONDS)
-            .connectTimeout(10L, TimeUnit.SECONDS)
+            .readTimeout(ConfigBean.instance.readTimeout, TimeUnit.MILLISECONDS)
+            .connectTimeout(ConfigBean.instance.connectTimeout, TimeUnit.MILLISECONDS)
             .addNetworkInterceptor {
                 val request = it.request()
                 println("OkHttpClient intercept: content $request")
@@ -23,7 +24,7 @@ class RemoteRepository private constructor(): BaseRepository() {
             }.build()
 
         retrofit = Retrofit.Builder()
-            .baseUrl("https://wanandroid.com/")
+            .baseUrl(ConfigBean.instance.baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(client)
