@@ -15,8 +15,8 @@ class RemoteRepository private constructor(): BaseRepository() {
 
     init {
         val client = OkHttpClient.Builder()
-            .readTimeout(ConfigBean.instance.readTimeout, TimeUnit.MILLISECONDS)
-            .connectTimeout(ConfigBean.instance.connectTimeout, TimeUnit.MILLISECONDS)
+            .readTimeout(ConfigBean.instance.Retrofit.readTimeout, TimeUnit.MILLISECONDS)
+            .connectTimeout(ConfigBean.instance.Retrofit.connectTimeout, TimeUnit.MILLISECONDS)
             .addNetworkInterceptor {
                 val request = it.request()
                 println("OkHttpClient intercept: content $request")
@@ -24,7 +24,7 @@ class RemoteRepository private constructor(): BaseRepository() {
             }.build()
 
         retrofit = Retrofit.Builder()
-            .baseUrl(ConfigBean.instance.baseUrl)
+            .baseUrl(ConfigBean.instance.Retrofit.baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(client)

@@ -1,10 +1,7 @@
 package com.xihu.huidefeng.models
 
 data class ConfigBean(
-	val baseUrl: String,
-	val readTimeout: Long,
-	val connectTimeout: Long,
-	val requestTimeout: Long
+	val Retrofit: RetrofitBean
 ) {
 	companion object {
 		@JvmStatic
@@ -12,6 +9,14 @@ data class ConfigBean(
 	}
 	
 	init {
+		println("instance_bean: $this")
 		instance = this
 	}
+	
+	data class RetrofitBean(
+			val baseUrl: String,
+			val readTimeout: Long,
+			val connectTimeout: Long,
+			val requestTimeout: Long
+	)
 }

@@ -31,10 +31,8 @@ fun Application.initialize() {
 }
 
 object Utils {
-	private val loginState = MutableLiveData(true)
-	var isLogin:Boolean
-		get() = loginState.value ?: true
+	var isLogin = true
 		set(value:Boolean) {
-			loginState.value = value
+			field = value
 		}
 }

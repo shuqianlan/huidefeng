@@ -15,7 +15,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     fun launchUI(block: suspend CoroutineScope.()->Unit) = viewModelScope.launch {
         loading.value = true
         try {
-            withTimeout(ConfigBean.instance.requestTimeout) { // 超时则抛出异常TimeoutCancellationException
+            withTimeout(ConfigBean.instance.Retrofit.requestTimeout) { // 超时则抛出异常TimeoutCancellationException
                 block() // 此处切换到线程池的上下文.
             }
         } catch (e: Exception) {
