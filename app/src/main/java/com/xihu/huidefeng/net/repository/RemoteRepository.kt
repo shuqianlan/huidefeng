@@ -3,6 +3,9 @@ package com.xihu.huidefeng.net.repository
 import com.xihu.huidefeng.net.api.ApiService
 import com.xihu.huidefeng.net.base.BaseRepository
 import com.xihu.huidefeng.models.ConfigBean
+import com.xihu.huidefeng.net.beans.LoginResponse
+import com.xihu.huidefeng.net.beans.ResponseData
+import kotlinx.coroutines.delay
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -44,6 +47,7 @@ class RemoteRepository private constructor(): BaseRepository() {
     }
 
     suspend fun login() = request {
-        apiService.login("15857184055", "dhafgaitryui6731da")
+        delay(2000)
+        ResponseData(0, "success", LoginResponse("dhafgaitryui6731da"))
     }
 }
