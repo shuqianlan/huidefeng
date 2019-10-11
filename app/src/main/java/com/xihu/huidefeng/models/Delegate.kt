@@ -1,5 +1,7 @@
 package com.xihu.huidefeng.models
 
+import android.app.Activity
+import com.xihu.huidefeng.net.base.BaseViewModelActivity
 import kotlin.reflect.KProperty
 
 /** 委托属性-代理实现(DEBUG) */

@@ -1,7 +1,6 @@
 package com.xihu.huidefeng.ui.utils
 
 import android.app.Application
-import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.xihu.huidefeng.YUAPP
 import com.xihu.huidefeng.models.ConfigBean
@@ -24,7 +23,7 @@ fun Application.initialize() {
 				builder.append(line).append("\n")
 			}
 		} while (line != null)
-		Gson().fromJson(builder.toString(), ConfigBean::class.java)
+		ConfigBean.instance = Gson().fromJson(builder.toString(), ConfigBean::class.java)
 	} catch (exp:Exception) {
 		exp.printStackTrace()
 	}

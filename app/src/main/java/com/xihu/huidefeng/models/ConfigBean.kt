@@ -8,11 +8,6 @@ data class ConfigBean(
 		lateinit var instance: ConfigBean
 	}
 	
-	init {
-		println("instance_bean: $this")
-		instance = this
-	}
-	
 	data class RetrofitBean(
 			val baseUrl: String,
 			val readTimeout: Long,

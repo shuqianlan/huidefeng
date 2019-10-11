@@ -1,67 +1,23 @@
 package com.xihu.huidefeng.net.base
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import com.xihu.huidefeng.models.ViewModelDelegate
 import com.xihu.huidefeng.ui.activity.BaseActivity
-import kotlinx.coroutines.TimeoutCancellationException
-import java.lang.Exception
 
-// TODO: 此处写法调整为BaeFragment中
-abstract class BaseViewModelActivity<VM: BaseViewModel>: BaseActivity() {
-    protected lateinit var viewModel:VM
+abstract class BaseViewModelActivity<VM: BaseViewModel>: BaseActivity(), ViewModelDelegate<VM> {
+    private lateinit var viewModel:VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initVM()
+        viewModel = initViewModel(this)
         super.onCreate(savedInstanceState)
-        startObserver()
     }
-
-    protected abstract fun providerVMClass():Class<VM>
-
-    private fun initVM() {
-        providerVMClass().run {
-            viewModel = ViewModelProvider.NewInstanceFactory().create(this)
-            lifecycle.addObserver(viewModel) // lifecycle是创建类时创建. 也就是其初始生命周期极早.
-        }
-    }
-
-    private fun startObserver() {
-        viewModel.run {
-            getError().observe(this@BaseViewModelActivity, Observer {
-                requestError(it)
-            })
-
-            loading().observe(this@BaseViewModelActivity, Observer {
-                showLoading(it)
-            })
-        }
-    }
-
-    open fun showLoading(it:Boolean) {
-        println("LoadingShow:$it")
-    }
-
-    private fun requestError(it:Exception?) {
-        it?.let {
-            when(it) {
-                is TimeoutCancellationException -> {
-                    toast("请求超时")
-                }
-                is BaseRepository.TokenInvalidException -> {
-                    it.message?.let {
-                        toast(it)
-                    }
-                }
-                else -> {
-                    println("Exception:${it.message}")
-                }
-            }
-        }
-    }
-
+    
     override fun onDestroy() {
         super.onDestroy()
-        lifecycle.removeObserver(viewModel)
+        lifecycle.removeObserver(viewModel!!)
+    }
+    
+    override fun showLoading(it: Boolean) {
+        println("activity showLoading:$it")
     }
 }

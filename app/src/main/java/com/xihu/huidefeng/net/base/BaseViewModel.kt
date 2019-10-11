@@ -13,6 +13,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     private val loading by lazy { MutableLiveData<Boolean>() }
 
     fun launchUI(block: suspend CoroutineScope.()->Unit) = viewModelScope.launch {
+        println("launchUI ~")
         loading.value = true
         try {
             withTimeout(ConfigBean.instance.Retrofit.requestTimeout) { // 超时则抛出异常TimeoutCancellationException
