@@ -47,7 +47,7 @@ class RemoteRepository private constructor(): BaseRepository() {
     }
 
     suspend fun login() = request {
-        delay(2000)
+        delay(4000)
         ResponseData(0, "success", LoginResponse("dhafgaitryui6731da"))
     }
 }

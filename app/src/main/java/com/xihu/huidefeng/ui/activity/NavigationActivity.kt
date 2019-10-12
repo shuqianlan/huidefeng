@@ -1,6 +1,7 @@
 package com.xihu.huidefeng.ui.activity
 
 import android.content.Intent
+import android.view.WindowManager
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -13,7 +14,9 @@ class NavigationActivity : BaseActivity() {
 	
 	override fun layoutId() = R.layout.activity_navigations
 
-	override fun initView() {}
+	override fun initView() {
+		window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+	}
 	
 	override fun initData() {}
 	

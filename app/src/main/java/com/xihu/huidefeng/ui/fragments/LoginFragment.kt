@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -23,19 +24,17 @@ class LoginFragment: BaseViewModelFragment<LoginViewModel>() {
 	
 	override fun providerVMClass()=LoginViewModel::class.java
 	
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		
-		viewModel.apply {
+	override fun initViewModel(context: AppCompatActivity): LoginViewModel {
+		return super.initViewModel(context).apply {
 			loginStatus.observe(activity!!, Observer {
 				if (it != null) {
-					Utils.isLogin = true
-					navigationPopUpTo(goto_login, null, R.id.action_loginFragment_to_mainActivity, true)
+//					Utils.isLogin = true
+//					navigationPopUpTo(goto_login, null, R.id.action_loginFragment_to_mainActivity, true)
 				}
 			})
 		}
 	}
-	
+
 	override fun initView(v: View) {
 		goto_register.setOnClickListener {
 			navigationPopUpTo(v, null, R.id.action_loginFragment_to_registerFragment, false)

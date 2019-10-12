@@ -12,12 +12,13 @@ abstract class BaseViewModelActivity<VM: BaseViewModel>: BaseActivity(), ViewMod
         super.onCreate(savedInstanceState)
     }
     
+    override fun showLoading(it: Boolean) {
+        showTopLoading(it)
+    }
+    
     override fun onDestroy() {
         super.onDestroy()
         lifecycle.removeObserver(viewModel!!)
     }
     
-    override fun showLoading(it: Boolean) {
-        println("activity showLoading:$it")
-    }
 }

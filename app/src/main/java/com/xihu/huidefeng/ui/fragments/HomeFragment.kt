@@ -11,10 +11,17 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.xihu.huidefeng.R
+import com.xihu.huidefeng.ui.activity.BaseActivity
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment() {
 
 	override fun layoutId(): Int = R.layout.fragment_home
 	
-	override fun initView(v:View) {}
+	override fun initView(v:View) {
+		
+		cardview.setOnClickListener {
+			(activity as BaseActivity).showTopLoading(true)
+		}
+	}
 }
