@@ -19,11 +19,11 @@
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/transparent"
+            android:background="@color/text_color_subtitle"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_repeatMode="restart"
-            app:lottie_rawRes="@raw/clay_loading_animation"
+            app:lottie_rawRes="@raw/supermali_loading"
             android:elevation="6dp"
             />
     </androidx.cardview.widget.CardView>

@@ -12,6 +12,7 @@ interface ViewModelDelegate<VM:BaseViewModel> {
 	fun providerVMClass():Class<VM>
 	
 	fun initViewModel(context: AppCompatActivity):VM {
+		// TOOD: 这个写法有点奇怪，使用委托类？？
 		return ViewModelProvider.NewInstanceFactory().create(providerVMClass()).also {
 			context.lifecycle.addObserver(it)
 			it.getError().observe(context, Observer {
